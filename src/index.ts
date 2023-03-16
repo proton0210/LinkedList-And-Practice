@@ -59,4 +59,23 @@ export class LinkedList<T> {
       currentIndex = currentIndex + 1;
     } while (currentNode);
   }
+
+  public insertAtIndex(index: number, value: T) {
+    if (!this._firstNode) return null;
+    const newNode = new CustomNode(value);
+    if (index === 0) {
+      newNode.nextNode = this._firstNode;
+      this._firstNode = newNode;
+      return;
+    }
+    let currentIndex = 0;
+    let currentNode = this._firstNode;
+
+    while (currentNode.nextNode && currentIndex < index - 1) {
+      currentNode = currentNode.nextNode;
+      currentIndex = currentIndex + 1;
+    }
+    newNode.nextNode = currentNode.nextNode;
+    currentNode.nextNode = newNode;
+  }
 }
