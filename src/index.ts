@@ -17,7 +17,7 @@ export class CustomNode<T> {
   }
 
   public set nextNode(node: CustomNode<T> | null) {
-    this.nextNode = node;
+    this._nextNode = node;
   }
 
   public get prevNode(): CustomNode<T> | null {
@@ -59,5 +59,3 @@ export class LinkedList<T> {
     } while (currentNode);
   }
 }
-
-
