@@ -45,6 +45,7 @@ export class LinkedList<T> {
       currentNode = currentNode.nextNode;
       currentIndex = currentIndex + 1;
     }
+    return currentNode.data;
   }
 
   public indexOf(value: T) {

@@ -29,3 +29,25 @@ test("CustomNode class with previousNode", () => {
   expect(nodeTwo.previousNode).toEqual(nodeOne);
   expect(nodeThree.nextNode).toBeNull();
 });
+
+test("LinkedList", () => {
+  const nodeOne = new CustomNode("once");
+  const nodeTwo = new CustomNode("upon");
+  const nodeThree = new CustomNode("a");
+  const nodeFour = new CustomNode("time");
+
+  nodeOne.nextNode = nodeTwo;
+  nodeTwo.nextNode = nodeThree;
+  nodeThree.nextNode = nodeFour;
+
+  const list = new LinkedList(nodeOne);
+
+  // Read
+  expect(list.read(10)).toBeNull();
+  expect(list.read(1)).toBe(nodeTwo.data);
+
+  // Search
+  expect(list.indexOf("history")).toBeNull();
+  expect(list.indexOf("time")).toBe(3);
+  expect(list.read(3)).toBe("time");
+});
