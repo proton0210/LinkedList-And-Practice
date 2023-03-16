@@ -78,4 +78,24 @@ export class LinkedList<T> {
     newNode.nextNode = currentNode.nextNode;
     currentNode.nextNode = newNode;
   }
+
+  public deleteAtIndex(index: number) {
+    if (!this._firstNode) return null;
+
+    if (index === 0) {
+      this._firstNode = this._firstNode.nextNode;
+      return;
+    }
+
+    let currentNode = this._firstNode;
+    let currentIndex = 0;
+
+    while (currentNode.nextNode && currentIndex < index - 1) {
+      currentNode = currentNode.nextNode;
+      currentIndex = currentIndex + 1;
+    }
+
+    const nodeAfterDeletedNode = currentNode.nextNode?.nextNode ?? null;
+    currentNode.nextNode = nodeAfterDeletedNode;
+  }
 }
