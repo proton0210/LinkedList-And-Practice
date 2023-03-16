@@ -13,3 +13,19 @@ test("Custom node Class", () => {
   expect(nodeOne.nextNode).toEqual(nodeTwo);
   expect(nodeFour.nextNode).toBeNull();
 });
+
+test("CustomNode class with previousNode", () => {
+  const nodeOne = new CustomNode("Bob");
+  const nodeTwo = new CustomNode("Jill");
+  const nodeThree = new CustomNode("Emily");
+
+  nodeOne.nextNode = nodeTwo;
+  nodeTwo.previousNode = nodeOne;
+  nodeTwo.nextNode = nodeThree;
+  nodeThree.previousNode = nodeTwo;
+
+  expect(nodeOne.previousNode).toBeNull();
+  expect(nodeOne.nextNode).toEqual(nodeTwo);
+  expect(nodeTwo.previousNode).toEqual(nodeOne);
+  expect(nodeThree.nextNode).toBeNull();
+});

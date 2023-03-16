@@ -20,11 +20,11 @@ export class CustomNode<T> {
     this._nextNode = node;
   }
 
-  public get prevNode(): CustomNode<T> | null {
+  public get previousNode(): CustomNode<T> | null {
     return this._prevNode;
   }
 
-  public set prevNode(node: CustomNode<T> | null) {
+  public set previousNode(node: CustomNode<T> | null) {
     this._prevNode = node;
   }
 }
